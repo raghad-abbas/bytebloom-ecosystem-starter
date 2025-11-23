@@ -1,22 +1,53 @@
-# The ByteBloom Ecosystem - Official Project Starter
 
-Welcome to the official starter project for the ByteBloom Academy's Kotlin Software Engineering mentorship program. This repository contains the foundational code and data assets for your team's main project.
+This repository contains our team’s implementation of the ByteBloom Ecosystem project using Kotlin.
+The project reads data from CSV files (mentees.csv, teams.csv, performance.csv) and converts them into clean models to generate simple reports.
 
-## Project Vision
+Project Structure
+	•	Main.kt – Entry point
+	•	parsers/ – CSV parsing functions
+	•	data/ – Raw data classes
+	•	models/ – Processed models
+	•	resources/ – CSV files
 
-The goal of this project is to build a robust, well-tested, and professionally architected command-line application. This system will process data from multiple sources to model a mentee ecosystem, generating insightful reports based on user commands. This project is the canvas on which you will apply all the concepts learned during the 8-week program, from basic syntax to SOLID principles, TDD, and concurrency.
+▶ How to Run the Project
+	1.	Open the project in IntelliJ IDEA
+	2.	Make sure Gradle syncs automatically
+	3.	Navigate to:
 
-## Getting Started
+src/main/kotlin/Main.kt
 
-1.  **Clone This Starter Project:** Use `git clone` to download this starter project to your local machine.
-2.  **Open in IntelliJ IDEA:** Open the cloned project folder in IntelliJ. It will automatically detect and sync the `build.gradle.kts` file.
-3.  **Run the `main` function:** Navigate to `src/main/kotlin/Main.kt` and run the `main` function to confirm your setup is correct.
+	4.	Click Run
 
-## Project Structure
+The CLI will start and allow you to view reports and data insights.
 
--   `src/main/kotlin/Main.kt`: The main entry point for the application.
--   `src/main/resources/`: Contains all raw data files (`mentees.csv`, `teams.csv`, `performance.csv`).
--   `src/test/kotlin/`: This directory is where all your unit tests will live.
--   `build.gradle.kts`: The heart of the project. This file manages dependencies (like JUnit, Koin, etc.) and build settings.
--   `.gitignore`: Specifies which files and directories to ignore in version control.
--   `README.md`: This file! The primary documentation for the project.
+Team Members
+	•	Raghad Abbas 
+  • Alaa Husam
+  • Soad Alastal
+  • Shahea Hassan 
+
+  🏗 Project Structure
+
+project-root/
+│
+├── src/
+│   ├── main/
+│   │   ├── kotlin/
+│   │   │   ├── Main.kt               → Application entry point
+│   │   │   ├── data/                 → Raw models (CSV structures)
+│   │   │   ├── parsers/              → CSV parsing logic
+│   │   │   ├── models/               → Clean processed models
+│   │   └── resources/
+│   │       ├── mentees.csv
+│   │       ├── teams.csv
+│   │       ├── performance.csv
+│   │
+│   └── test/                         → Unit tests
+│
+├── build.gradle.kts                  → Project dependencies & config
+├── README.md                         → Project documentation
+└── .gitignore
+
+
+  • Shahed Musallm
+  
