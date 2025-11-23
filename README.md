@@ -1,52 +1,40 @@
 🌱 ByteBloom Ecosystem – Kotlin Implementation
 
-This repository contains our team’s implementation of the ByteBloom Ecosystem using Kotlin.
-The project reads data from CSV files (mentees.csv, teams.csv, performance.csv), converts them into structured models, and generates simple insightful reports via a CLI interface.
+The ByteBloom Ecosystem is a Kotlin-based project designed to read CSV data, transform it into structured models, and generate simple analytical reports via a clean CLI interface.
+
+This repository includes all components needed to parse and organize the data for mentees, teams, and performance tracking.
 
 🚀 How to Run the Project
 
-Open the project in IntelliJ IDEA
+Follow these steps to run the project locally:
 
-Ensure Gradle syncs automatically
+Open the project using IntelliJ IDEA
 
-Navigate to:
+Ensure that Gradle syncs successfully
+
+Open the main file:
 
 src/main/kotlin/Main.kt
 
 
-Press Run ▶
+Click Run ▶
 
-The CLI will launch and allow you to browse reports and data insights.
+Once executed, the CLI will start and display multiple data insights and reports.
 
-👥 Team Members
+📂 Included CSV Files
 
-Raghad Abbas
+The project loads and processes the following files:
 
-Alaa Husam
+mentees.csv
 
-Soad Alastal
+teams.csv
 
-Shahea Hassan
+performance.csv
 
-Shahed Musallm
+These files are stored inside src/main/resources/.
 
-🏗 Project Structure
-project-root/
-│
-├── src/
-│   ├── main/
-│   │   ├── kotlin/
-│   │   │   ├── Main.kt               → Application entry point
-│   │   │   ├── data/                 → Raw models mapped from CSV
-│   │   │   ├── parsers/              → CSV parsing logic
-│   │   │   ├── models/               → Clean processed data models
-│   │   └── resources/
-│   │       ├── mentees.csv
-│   │       ├── teams.csv
-│   │       ├── performance.csv
-│   │
-│   └── test/                         → Unit tests (if added)
-│
-├── build.gradle.kts                  → Project dependencies & config
-├── README.md                         → Project documentation
-└── .gitignore
+
+
+📘 License
+
+This project is for educational and collaborative purposes.
