@@ -1,7 +1,7 @@
 package domain
 
 data class Team (
-    val menteeId: String,
+    val teamId: String,
     val submissionId: String,
     val mentorLead: String,
     val mentees: List<Mentee> ?
