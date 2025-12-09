@@ -7,12 +7,12 @@ import domain.Team
 
 class DomainBuilding {
     fun bildDomain(
-        PerformanceRawList : List<PerformanceRaw>,
-        teamRawList : List<TeamRaw>,
-        menteeRawList : List<MenteeRaw>){
+        PerformanceRawList: List<PerformanceRaw>,
+        teamRawList: List<TeamRaw>,
+        menteeRawList: List<MenteeRaw>
+    ) {
 
-        val performanceSubmission = PerformanceRawList.map {
-            performanceSubmissionRaw ->
+        val performanceSubmission = PerformanceRawList.map { performanceSubmissionRaw ->
             PerformanceSubmission(
                 menteeId = performanceSubmissionRaw.menteeId,
                 submissionId = performanceSubmissionRaw.submissionId,
@@ -22,10 +22,9 @@ class DomainBuilding {
 
         }
 
-        val teams = teamRawList.map {
-            teamRaw ->
+        val teams = teamRawList.map { teamRaw ->
             Team(
-                menteeId = teamRaw.menteeId,
+                teamId = teamRaw.menteeId,
                 submissionId = teamRaw.submissionId,
                 mentorLead = teamRaw.mentorLead,
                 mentees = null
@@ -42,8 +41,18 @@ class DomainBuilding {
             )
 
         }
+        val performanceMap = performanceSubmission.groupBy { it.menteeId }
 
+        val menteeMap = mentee.associateBy { it.menteeId }.mapValues { entry ->
+            val submissions = performanceMap[entry.key] ?: emptyList()
+            entry.value.copy(submissions = submissions)
+        }
 
+        val teamMap = teams.associateBy { it.teamId }.mapValues { entry ->
+            val teamMentees = menteeMap.values.filter { it.teamId == entry.key }
+            entry.value.copy(mentees = teamMentees)
+            }
 
+        }
     }
-}
+
