@@ -14,7 +14,6 @@ class DomainBuilder {
     private var SubmissionseMap = mutableMapOf<String,List<PerformanceSubmission>>()
     private var menteesMap= mutableMapOf<String,Mentee>()
     private var teamsMap= mutableMapOf<String,Team>()
-    
 
     fun buildDomain(PerformanceRawList: MutableList<PerformanceRaw>, teamRawList: MutableList<TeamRaw>,
     menteeRawList: MutableList<MenteeRaw>):MutableList<Team>{
@@ -23,7 +22,6 @@ class DomainBuilder {
             createLinkes()
             return teamsDomainList
     }
-
     private fun createDomainLists(PerformanceRawList: MutableList<PerformanceRaw>, teamRawList: MutableList<TeamRaw>,
     menteeRawList: MutableList<MenteeRaw>){
             createsubmissinDomainLists(PerformanceRawList)
@@ -34,7 +32,6 @@ class DomainBuilder {
         createperformanceMap()
         createMenteeDomainMap()
         createTeamDomainMap()
-
     }
     private fun createLinkes(){
          for(Raw in menteesDomainList) {
@@ -54,7 +51,6 @@ class DomainBuilder {
              }
          }
     }
-
     private fun createMenteeDomainLists(menteeRawList: MutableList<MenteeRaw>) {
         this.menteesDomainList = menteeRawList.map { menteeRaw ->
             Mentee(
@@ -63,21 +59,17 @@ class DomainBuilder {
                 teamId = menteeRaw.teamId,
                 submissions = mutableListOf<String>()
             )
-
         }.toMutableList()
-        
     }
     private fun createTeamDomainLists(teamRawList: MutableList<TeamRaw>) {
         this.teamsDomainList = teamRawList.map { teamRaw ->
             Team(
-                teamId = teamRaw.menteeId,
-                submissionId = teamRaw.submissionId,
+                Id = teamRaw.Id,
+                name = teamRaw.name,
                 mentorLead = teamRaw.mentorLead,
                 mentees = mutableListOf<String>()
             )
-
         }.toMutableList()
-        
     }
     private fun createsubmissinDomainLists(PerformanceRawList: MutableList<PerformanceRaw>){
         this.SubmissionsDomainList = PerformanceRawList.map { performanceSubmissionRaw ->
@@ -87,19 +79,16 @@ class DomainBuilder {
                 submissionType = performanceSubmissionRaw.submissionType,
                 score = performanceSubmissionRaw.score
             )
-
         }.toMutableList()
     }
-
     private fun createMenteeDomainMap(){
         this.menteesMap = this.menteesDomainList.associateBy { it.menteeId }.toMutableMap()
     }
     private fun createTeamDomainMap(){
-        this.teamsMap = this.teamsDomainList.associateBy { it.teamId }.toMutableMap()
+        this.teamsMap = this.teamsDomainList.associateBy { it.Id }.toMutableMap()
     }
     private fun createperformanceMap(){
         this.SubmissionseMap = this.SubmissionsDomainList.groupBy { it.menteeId }.toMutableMap()
-
     }
     fun getMenteeList(): MutableList<Mentee> {
         return this.menteesDomainList
