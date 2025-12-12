@@ -8,7 +8,6 @@ fun main() {
     println("Team count = ${team.size}")
     println("Performance rows = ${performance.size}")
     println("____________________________________")
-
     val builder = DomainBuilder()
     val teams = builder.buildDomain(
             performance.toMutableList(),
