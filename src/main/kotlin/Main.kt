@@ -16,7 +16,7 @@ fun main() {
         )
     val menteeList = builder.getMenteeList()
     val firstTeam = teams.first()
-    println("First Team : ${firstTeam.Id}")
+    println("First Team : ${firstTeam.name}")
 
     val menteesInsideThisTeam = menteeList.filter { it.teamId == firstTeam.Id }
     println("Mentees names Within the team :")
