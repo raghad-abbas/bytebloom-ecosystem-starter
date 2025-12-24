@@ -1,10 +1,8 @@
 package domain
 
 data class PerformanceSubmission(
-
-    val submissionId: String,
-    val submissionType: String,
+    val id: String,
+    val type: String,
     val score: String,
     val menteeId: String
-
 )

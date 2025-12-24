@@ -1,8 +1,8 @@
 package domain
 
-data class Team (
-    val Id: String,
+data class Team(
+    val id: String,
     val name: String,
     val mentorLead: String,
-    val mentees: MutableList<String>
+    val members: List<Mentee>
 )
