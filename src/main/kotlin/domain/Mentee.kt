@@ -1,9 +1,12 @@
 package domain
 
-data class Mentee (
-    val Id: String,
+import models.AttendanceRaw
+
+data class Mentee(
+    val id: String,
     val name: String,
     val teamId: String,
-    var submissions:MutableList<String>
+    var submissions: List<PerformanceSubmission>,
+    val attendanceRecords: List<AttendanceRaw>
 )
 
