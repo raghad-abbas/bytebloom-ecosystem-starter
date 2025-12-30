@@ -40,7 +40,9 @@ fun parseMenteeData(): List<MenteeRaw> {
         MenteeRaw(
             id = columns[0],
             name = columns[1],
-            teamId = columns[2]
+            teamId = columns[2],
+            emptyList(),
+            emptyList()
         )
     }
 }
