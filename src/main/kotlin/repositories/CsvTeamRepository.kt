@@ -1,18 +1,18 @@
 package repositories
+import datasource.CsvEcosystemDatasource
 import domain.Team
-import models.TeamRaw
-import parseTeamData
+
 
 class CsvTeamRepository() : TeamRepository {
-    fun mappingTeamRawToTeam(dataTeams: List<TeamRaw>): List<Team> {
-        return dataTeams.map { teamRaw ->
+    fun mappingTeamRawToTeam(dataTeams: CsvEcosystemDatasource): List<Team> {
+        return dataTeams.getAllTeams().map { teamRaw ->
             Team(
                 teamRaw.id, teamRaw.name, teamRaw.mentor, emptyList()
             )
         }
     }
     override fun getAllTeams(): List<Team> {
-        val parsedTeams = parseTeamData()
-        return mappingTeamRawToTeam(parsedTeams)
+        val dataSource =CsvEcosystemDatasource()
+        return mappingTeamRawToTeam(dataSource)
     }
 }
