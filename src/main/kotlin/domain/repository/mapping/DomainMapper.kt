@@ -1,10 +1,10 @@
 package domain.repository.mapping
 
-import domain.Attendance
-import domain.Mentee
-import domain.PerformanceSubmission
-import domain.Projects
-import domain.Team
+import domain.model.Attendance
+import domain.model.Mentee
+import domain.model.PerformanceSubmission
+import domain.model.Projects
+import domain.model.Team
 import model.AttendanceRaw
 import model.MenteeRaw
 import model.PerformanceSubmissionRaw
