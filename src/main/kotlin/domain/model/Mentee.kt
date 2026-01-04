@@ -1,4 +1,6 @@
-package domain
+package domain.model
+
+import domain.model.PerformanceSubmission
 
 data class Mentee(
     val id: String,
@@ -7,4 +9,3 @@ data class Mentee(
     var submissions: List<PerformanceSubmission>,
     val attendanceRecords: List<Attendance>
 )
-
