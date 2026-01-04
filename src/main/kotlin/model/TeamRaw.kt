@@ -3,6 +3,6 @@ package model
 data class TeamRaw(
     val id :String,
     val name: String,
-    val mentor: String,
+    val mentorLead: String,
     var members: List<MenteeRaw>
 )
