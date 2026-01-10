@@ -17,11 +17,12 @@ class TeamService(
         return team?.mentorLead
     }
     fun getOverallPerformanceAverageForTeam(teamId: String): Double {
-        val allSubmissions = performanceRepository.getAllPerformanceSubmission()
-        val teamSubmissions = allSubmissions.filter { it.id == teamId }
-        if (teamSubmissions.isEmpty()) return 0.0
-        val totalScore = teamSubmissions.sumOf { it.score.toDouble()}
+        val team = teamRepository.getAllTeams()
+            .find { it.id == teamId }
+            ?: return 0.0
+        val allScoring = team.members.flatMap { it.submissions }.map { it.score.toDouble() }
+        return allScoring.average()
 
-        return totalScore / teamSubmissions.size
     }
+
 }
