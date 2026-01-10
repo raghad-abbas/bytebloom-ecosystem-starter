@@ -1,12 +1,13 @@
 package domain.services
 
 import domain.model.Team
-import domain.repository.contracts.PerformanceSubmissionRepository
+import domain.model.Projects
 import domain.repository.contracts.TeamRepository
+import domain.repository.contracts.ProjectRepository
 
 class TeamService(
     private val teamRepository: TeamRepository,
-    private val performanceRepository: PerformanceSubmissionRepository
+    private val projectRepository: ProjectRepository
 ) {
 
     fun findLeadMentorForMentee(menteeId: String): String? {
@@ -23,6 +24,19 @@ class TeamService(
         val allScoring = team.members.flatMap { it.submissions }.map { it.score.toDouble() }
         return allScoring.average()
 
+    }
+    fun findTeamsWithNoProject(): List<Team> {
+        val allTeams: List<Team> = teamRepository.getAllTeams()
+        val allProjects: List<Projects> = projectRepository.getAllProjects()
+
+        val assignedTeamIds: Set<String> = allProjects.map { it.teamId }.toSet()
+
+        return allTeams.filter { team: Team -> team.id !in assignedTeamIds }
+    }
+
+    fun findProjectAssignedToTeam(teamId: String): Projects? {
+        val allProjects: List<Projects> = projectRepository.getAllProjects()
+        return allProjects.find { it.teamId == teamId }
     }
 
 }
