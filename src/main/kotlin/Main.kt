@@ -1,4 +1,3 @@
-import datasource.CsvEcosystemDatasource
 import datasource.parser.CsvParser
 import datasource.mapper.DataLinker
 import domain.repository.mapping.DomainMapper
@@ -17,8 +16,6 @@ fun main() {
     val result = teamService.findTeamsWithNoProject()
     result.forEach { println(it.name) }
 }
-
-
 
 
 
